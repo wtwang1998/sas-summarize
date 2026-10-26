@@ -43,6 +43,7 @@ def get_changed_files(base_sha: str, head_sha: str) -> dict[PurePosixPath, set[s
     """Return managed SAS files changed between the PR base and head."""
     output = run_git(
         "diff",
+        "--no-renames",
         "--name-only",
         "-z",
         f"{base_sha}...{head_sha}",
