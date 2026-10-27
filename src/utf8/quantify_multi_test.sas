@@ -197,7 +197,7 @@
 
     proc sql noprint;
         create table tmp_qmt_stat
-            (seq num, item char(10), value_1 char(16), value_2 char(10));
+            (seq num, item char(20), value_1 char(16), value_2 char(10));
     quit;
 
     %if &nrmtest_valid = 0 %then %do; /*两组均为单点分布，无法检验正态性，不计算统计量*/
