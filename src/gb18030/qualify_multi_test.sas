@@ -311,7 +311,7 @@
         %put NOTE: 行或列的非缺失观测少于2，无法计算统计量，将输出空数据集！;
         proc sql noprint;
             create table tmp_qmt_stat
-                    (idt num, seq num, item char(10), value_1 char(10), value_2 char(10));
+                    (idt num, seq num, item char(20), value_1 char(10), value_2 char(10));
             insert into tmp_qmt_stat
                 set idt     = 2,
                     seq     = &desc_seq_max + 1,
