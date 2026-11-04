@@ -406,7 +406,7 @@
                         distinct
                         ""                                       as var_level,
                         %unquote(%superq(missing_note_sql_expr)) as var_level_note
-                    from tmp_qualify_distinct_var
+                    from (select count(*) from tmp_qualify_distinct_var)
                     outer union corr
                     select * from tmp_qualify_distinct_var;
             quit;
@@ -420,7 +420,7 @@
                         distinct
                         ""                                       as var_level,
                         %unquote(%superq(missing_note_sql_expr)) as var_level_note
-                    from tmp_qualify_distinct_var;
+                    from (select count(*) from tmp_qualify_distinct_var);
             quit;
         %end;
         %else %do;
